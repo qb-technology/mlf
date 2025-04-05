@@ -1,0 +1,37 @@
+@import 'tailwindcss';
+@import '@nuxt/ui';
+
+@theme static {
+  --font-sans: 'Noto Sans', sans-serif;
+  --aspect-image: 4/3;
+
+  --animate-marquee: marquee 20s linear infinite;
+  --animate-marque-vertical: marquee-vertical 20s linear infinite;
+  --animate-marquee-rtl_var: marquee 20s linear infinite;
+  @keyframes marquee {
+    0% {
+      transform: translateZ(0);
+      will-change: transform;
+    }
+    100% {
+      transform: translate3d(calc(-100% - var(--gap)), 0, 0);
+      will-change: transform;
+    }
+  }
+  @keyframes marquee-vertical {
+    0% {
+      transform: translateZ(0);
+      will-change: transform;
+    }
+    100% {
+      transform: translate3d(0, calc(-100% - var(--gap)), 0);
+      will-change: transform;
+    }
+  }
+}
+
+/* @source '../../components'; */
+
+:root {
+  --ui-header-height: --spacing(16);
+}

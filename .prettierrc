@@ -1,0 +1,8 @@
+{
+    "printWidth": 80,
+    "singleQuote": true,
+    "vueIndentScriptAndStyle": true,
+    "htmlWhitespaceSensitivity": "ignore",
+    "attributePerLine": true,
+    "trailingComma": "all"
+}
