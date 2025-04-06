@@ -65,6 +65,7 @@
           :class="[_ui.image({ class: [ui.image] })]"
           :src="image.src"
           :alt="image.alt"
+          hydrate-on-visible
         />
       </div>
     </div>

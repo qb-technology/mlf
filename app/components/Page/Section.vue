@@ -179,7 +179,10 @@
             />
           </slot>
         </div>
-        <div v-if="$slots.links || links.length" :class="[_ui.links]">
+        <div
+          v-if="$slots.links || links.length"
+          :class="[_ui.links({ class: [ui.links] })]"
+        >
           <slot name="links">
             <UButton
               v-for="(button, ind) of props.links"

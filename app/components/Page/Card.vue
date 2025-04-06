@@ -70,7 +70,7 @@
   const pageCard = tv(
     {
       slots: {
-        root: 'relative flex rounded-[calc(var(--ui-radius)*2)]',
+        root: 'relative rounded-[calc(var(--ui-radius)*2)]',
         spotlight:
           'absolute inset-0 rounded-[inherit] pointer-events-none bg-(--ui-bg)/90',
         container:
@@ -319,7 +319,7 @@
       ref="spotlightEl"
       :class="[_ui.spotlight({ class: ui.spotlight })]"
     /> -->
-    <div v-if="$slots.header" :class="[_ui.header({ class: [] })]">
+    <div v-if="$slots.header" :class="[_ui.header({ class: [ui.header] })]">
       <slot name="header" />
     </div>
 
@@ -362,7 +362,7 @@
       <slot />
     </div>
 
-    <div v-if="$slots.footer" :class="[_ui.footer]">
+    <div v-if="$slots.footer" :class="[_ui.footer({ class: [ui.footer] })]">
       <slot name="footer" />
     </div>
 

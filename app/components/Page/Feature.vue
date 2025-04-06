@@ -76,10 +76,13 @@
   <div :class="[_ui.root({ class: [props.class, ui.root] })]">
     <div
       v-if="icon || $slots.leading"
-      :class="[_ui.leadingIcon({ class: [ui.leadingIcon] })]"
+      :class="[_ui.leading({ class: [ui.leading] })]"
     >
       <slot name="leading">
-        <UIcon :name="icon" :class="[_ui.leadingIcon]" />
+        <UIcon
+          :name="icon"
+          :class="[_ui.leadingIcon({ class: [ui.leadingIcon] })]"
+        />
       </slot>
     </div>
 

@@ -3,15 +3,15 @@
   const items = ref<Array<NavigationMenuItem>>([
     {
       label: 'About us',
-      to: '#',
+      to: '/about-us',
     },
     {
       label: 'What we do',
-      to: '#',
+      to: '/what-we-do',
     },
     {
-      label: 'Media',
-      to: '#',
+      label: 'Gallery',
+      to: '/gallery',
     },
     {
       label: 'Contact',
@@ -22,10 +22,13 @@
 
 <template>
   <!-- <UContainer> -->
-  <PageHeader>
+  <PageHeader :ui="{ title: 'max-w-[200px] text-base' }">
     <template #title>
       <!-- <NuxtImg src="logo.png" class="w-36 aspect-auto" /> -->
-      M.L.F
+      <div class="flex items-start gap-2">
+        <UIcon name="i-lucide:earth" class="size-7" />
+        <span class="wrap-normal">Martin Luther Foundation</span>
+      </div>
     </template>
     <UNavigationMenu :items="items" />
     <template #right>
@@ -35,6 +38,12 @@
           <span class="size-8" />
         </template>
       </ClientOnly>
+      <UButton
+        variant="solid"
+        color="neutral"
+        icon="i-lucide:heart-handshake"
+        label="Join Us"
+      />
     </template>
   </PageHeader>
   <!-- </UContainer> -->
