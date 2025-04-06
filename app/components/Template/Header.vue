@@ -21,22 +21,23 @@
 </script>
 
 <template>
-  <UContainer>
-    <PageHeader>
-      <template #title>
-        <NuxtImg src="logo.png" class="w-36 aspect-auto" />
-      </template>
-      <UNavigationMenu :items="items" />
-      <template #right>
-        <ClientOnly>
-          <ColorModeButton />
-          <template #fallback>
-            <span class="size-8" />
-          </template>
-        </ClientOnly>
-      </template>
-    </PageHeader>
-  </UContainer>
+  <!-- <UContainer> -->
+  <PageHeader>
+    <template #title>
+      <!-- <NuxtImg src="logo.png" class="w-36 aspect-auto" /> -->
+      M.L.F
+    </template>
+    <UNavigationMenu :items="items" />
+    <template #right>
+      <ClientOnly>
+        <ColorModeButton />
+        <template #fallback>
+          <span class="size-8" />
+        </template>
+      </ClientOnly>
+    </template>
+  </PageHeader>
+  <!-- </UContainer> -->
 </template>
 
 <style scoped></style>

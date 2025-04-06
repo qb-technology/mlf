@@ -84,7 +84,7 @@
     :as-child="asChild"
     :class="_ui.root({ class: [props.class, ui.root] })"
   >
-    <div :class="_ui.container({ class: [ui.container] })">
+    <UContainer :class="_ui.container({ class: [ui.container] })">
       <div :class="_ui.left({ class: [ui.left] })">
         <slot name="left">
           <ULink :to="to" :class="_ui.title({ class: [ui.title] })">
@@ -105,7 +105,7 @@
           />
         </slot>
       </div>
-    </div>
+    </UContainer>
     <USlideover
       v-model:open="_open"
       :side="toggleSide"

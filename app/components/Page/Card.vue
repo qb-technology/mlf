@@ -60,8 +60,8 @@
     highlightColor: 'primary',
     spotlightColor: 'primary',
     to: undefined,
-    icon: 'i-lucide-earth',
-    variant: 'soft',
+    icon: undefined,
+    variant: 'outline',
     orientation: 'vertical',
     link: () => ({}),
     ui: () => ({}),
@@ -296,13 +296,13 @@
     }),
   );
 
-  const spotlightEl = templateRef('spotlightEl');
-  const parentEl = useParentElement(spotlightEl);
-  const { x: mouse_x, y: mouse_y } = useMouse({ target: parentEl });
-  const spotlight_style = computed(() => ({
-    '--spotlight-x': `${mouse_x.value}px`,
-    '--spotlight-y': `${mouse_y.value}px`,
-  }));
+  // const spotlightEl = templateRef('spotlightEl');
+  // const parentEl = useParentElement(spotlightEl);
+  // const { x: mouse_x, y: mouse_y } = useMouse({ target: parentEl });
+  // const spotlight_style = computed(() => ({
+  //   '--spotlight-x': `${mouse_x.value}px`,
+  //   '--spotlight-y': `${mouse_y.value}px`,
+  // }));
 </script>
 
 <template>
@@ -314,12 +314,11 @@
         class: [props.class, ui.root],
       }),
     ]"
-    :style="spotlight_style"
   >
-    <div
+    <!-- <div
       ref="spotlightEl"
       :class="[_ui.spotlight({ class: ui.spotlight })]"
-    ></div>
+    /> -->
     <div v-if="$slots.header" :class="[_ui.header({ class: [] })]">
       <slot name="header" />
     </div>
@@ -334,7 +333,8 @@
         <div :class="[_ui.leading({ class: [ui.leading] })]">
           <slot name="leading">
             <UIcon
-              :name="props.icon"
+              v-if="icon"
+              :name="icon"
               :class="[_ui.leadingIcon({ class: [ui.leadingIcon] })]"
             />
           </slot>
@@ -367,7 +367,7 @@
     </div>
 
     <ULink v-if="Object.values(props.link).length" v-bind="props.link">
-      <span class="absolute inset-0" aria-hidden="true"></span>
+      <span class="absolute inset-0" aria-hidden="true" />
     </ULink>
   </Primitive>
 </template>
