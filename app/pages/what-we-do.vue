@@ -12,7 +12,7 @@
       title: 'Serving communities across continents',
       headline: 'Impact',
       description:
-        'Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.',
+        'From the heart of Italy to the spirit of Africa, our work bridges communities through service, culture, and compassion. We are committed to uplifting lives and creating lasting connections — across borders and beyond.',
       orientation: 'horizontal',
     } as PageHeroProps,
     services: {
@@ -73,20 +73,20 @@
     projects: {
       orientation: 'vertical',
       reverse: false,
-      title: 'We are creating a place where everyone can thrive',
+      title: 'Our Impact in Action',
       headline: 'Projects',
     } as PageSectionProps,
     cta: {
-      title: 'You can contribute to making society better for all of us',
-      variant: 'naked',
+      title: 'Ready to Make a Difference?',
+      variant: 'subtle',
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.',
+        "Join a growing network of African expats working to support each other and contribute to a better community. Whether you want to volunteer, participate in events, or simply connect — there's a place for you.",
       links: [
         {
           label: 'Join us today',
           color: 'primary',
           variant: 'solid',
-          to: '#',
+          to: '/join-us',
           size: 'lg',
         },
         {
@@ -102,22 +102,25 @@
 
   const projects = ref([
     {
-      title: 'Mission smile 1k: Outdoor charity',
+      title: 'Neighborhood Clean-up Days',
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.',
+        'Regular volunteer-led clean-ups in collaboration with local authorities',
       link: '#',
+      image: getStorageUrl('10-min.jpeg'),
     },
     {
-      title: 'Excursions & Games',
+      title: 'Outdoor Activities & Games',
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.',
+        'Regular health-focused activities to promote togetherness and health awareness.',
       link: '#',
+      image: getStorageUrl('11-min.jpeg'),
     },
     {
-      title: 'Monthly public awareness',
+      title: 'Language & Job Readiness Workshops',
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.',
+        'Helping members improve Italian proficiency and job-seeking skills.',
       link: '#',
+      image: getStorageUrl('5-min.jpeg'),
     },
   ]);
 </script>
@@ -126,7 +129,13 @@
   <div>
     <UContainer>
       <PageHero v-bind="page.hero" :ui="{ title: 'text-4xl sm:text-6xl' }">
-        <BaseImagePlaceholder class="w-full" />
+        <NuxtImg
+          :src="getStorageUrl('13-min.jpg')"
+          width="450"
+          height="550"
+          alt="Gathering of people"
+          class="w-full rounded-[calc(var(--ui-radius)*2)] aspect-image object-cover"
+        />
       </PageHero>
     </UContainer>
 
@@ -145,10 +154,10 @@
           variant="subtle"
           reverse
         >
-          <img
-            src="https://picsum.photos/500/500"
+          <NuxtImg
+            :src="proj.image"
             :alt="proj.title"
-            class="w-full rounded-[calc(var(--ui-radius)*2)] relative after:absolute after:inset-0 after:bg-black/50"
+            class="w-full rounded-[calc(var(--ui-radius)*2)] aspect-image object-cover"
           />
         </PageCard>
       </PageGrid>

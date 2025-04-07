@@ -1,4 +1,5 @@
 <script setup lang="ts">
+  import type { StepperItem } from '@nuxt/ui';
   import type { BaseAwardsProp } from '~/components/Base/Awards.vue';
   import type { PageCTAProps } from '~/components/Page/CTA.vue';
   import type { PageHeroProps } from '~/components/Page/Hero.vue';
@@ -18,7 +19,7 @@
 
   const page = ref({
     hero: {
-      title: 'We are a non-governmental organization',
+      title: 'Together we build, grow, and inspire',
       headline: 'Know About Us',
       // description:
       //   '‍Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.',
@@ -35,19 +36,19 @@
         {
           title: 'Our Values',
           description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.',
+            'Unity, because we are stronger together. Solidarity, because no one should feel alone. Growth, because everyone deserves opportunities to thrive. Cultural pride, because our roots are a treasure to share.',
           icon: 'i-lucide:hand-heart',
         },
         {
           title: 'Our Mission',
           description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.',
+            'To support and empower the African community in Italy through educational, cultural, and social initiatives that promote integration, solidarity, and social impact.',
           icon: 'i-lucide:target',
         },
         {
           title: 'Our Vision',
           description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.',
+            'To be a welcoming hub for Africans in Italy. A space where people feel seen, supported, and inspired to build a better future together.',
           icon: 'i-lucide:scan-eye',
         },
       ],
@@ -68,7 +69,7 @@
       title: 'Awards & Recognitions',
       // headline: 'What We Do',
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.',
+        'We’ve been honored with local recognition for our civic and cultural contributions',
       awards: [
         {
           year: 2021,
@@ -95,15 +96,14 @@
     journey: {
       orientation: 'horizontal',
       reverse: false,
-      title: 'How we raised 34M',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh.',
+      title: 'How Far We have Come',
+      description: 'From humble beginnings to impactful growth',
       headline: 'Our Journey',
       features: [
         {
-          title: '34M+',
-          description: 'Donation Received',
-          icon: 'i-lucide:hand-coins',
+          title: String(Math.abs(new Date().getFullYear() - 2020)) + '+',
+          description: 'Years',
+          icon: 'i-lucide:calendar-days',
           orientation: 'horizontal',
         },
         {
@@ -119,7 +119,14 @@
           orientation: 'horizontal',
         },
       ],
-    } as PageSectionProps,
+      steps: [
+        {
+          title: '',
+          description: '',
+          icon: '',
+        },
+      ],
+    } as PageSectionProps & { steps: Array<StepperItem> },
     team: {
       orientation: 'vertical',
       reverse: false,
@@ -161,16 +168,16 @@
       ],
     } as PageSectionProps & { team: Array<TeamMember> },
     cta: {
-      title: 'You can contribute to making society better for all of us',
-      variant: 'naked',
+      title: 'Ready to Make a Difference?',
+      variant: 'subtle',
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.',
+        "Join a growing network of African expats working to support each other and contribute to a better community. Whether you want to volunteer, participate in events, or simply connect — there's a place for you.",
       links: [
         {
           label: 'Join us today',
           color: 'primary',
           variant: 'solid',
-          to: '#',
+          to: '/join-us',
           size: 'lg',
         },
         {
@@ -190,8 +197,8 @@
     <UContainer>
       <PageHero v-bind="page.hero" :ui="{ title: 'text-4xl sm:text-6xl' }">
         <PageCard
-          title="Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere."
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Suspendisse varius enim elementum tristique."
+          title="We are a non-governmental organization"
+          description="We are a community of Africans in Italy, united by solidarity, culture, and a shared purpose to make a positive impact."
           variant="naked"
           :ui="{
             root: 'h-full',
@@ -199,7 +206,15 @@
             description: 'text-base mt-2.5',
           }"
         />
-        <BaseImagePlaceholder class="w-full col-span-full" />
+        <!-- <BaseImagePlaceholder class="w-full col-span-full"> -->
+        <NuxtImg
+          :src="getStorageUrl('1-min.jpg')"
+          width="450"
+          height="550"
+          alt="Gathering of people"
+          class="w-full col-span-full rounded-[calc(var(--ui-radius)*2)] aspect-video object-cover"
+        />
+        <!-- </BaseImagePlaceholder> -->
 
         <PageGrid :ui="{ base: 'col-span-full' }">
           <PageCard
@@ -233,7 +248,13 @@
     </div>
 
     <PageSection v-bind="page.journey">
-      <BaseImagePlaceholder />
+      <NuxtImg
+        :src="getStorageUrl('6-min.jpeg')"
+        width="450"
+        height="550"
+        alt="Gathering of people"
+        class="w-full rounded-[calc(var(--ui-radius)*2)] aspect-image object-cover"
+      />
     </PageSection>
 
     <PageSection v-bind="page.team">
@@ -253,7 +274,7 @@
           }"
         >
           <img
-            src="https://picsum.photos/500/500"
+            src="https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
             :alt="user.name"
             class="w-full rounded-[calc(var(--ui-radius)*2)] relative after:absolute after:inset-0 after:bg-black/50"
           />

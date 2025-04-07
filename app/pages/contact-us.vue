@@ -34,10 +34,16 @@
 
 <template>
   <div>
-    <div class="bg-(--ui-bg-elevated)/75">
+    <div>
       <UContainer>
-        <PageHero v-bind="page.hero">
-          <div class="grid gap-6 sm:gap-7">
+        <PageHero
+          v-bind="page.hero"
+          :ui="{
+            wrapper: 'col-span-full text-center',
+            headline: 'justify-center',
+          }"
+        >
+          <div class="grid order-2 lg:order-none gap-6 sm:gap-7">
             <div class="space-y-4 sm:space-y-5">
               <h3 class="text-base md:text-lg font-semibold">Let's talk!</h3>
               <div class="flex items-center gap-4 flex-wrap w-full">
@@ -98,13 +104,17 @@
               />
             </div>
           </div>
+
+          <div class="order-1 lg:order-none">
+            <div class="max-w-3xl mx-auto w-full">
+              <FormsContact />
+            </div>
+          </div>
         </PageHero>
       </UContainer>
     </div>
 
-    <PageSection>
-      <FormsContact />
-    </PageSection>
+    <PageSection></PageSection>
   </div>
 </template>
 

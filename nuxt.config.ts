@@ -20,10 +20,19 @@ export default defineNuxtConfig({
   },
 
   compatibilityDate: '2024-11-27',
+  runtimeConfig: {
+    public: {
+      storage: process.env.STORAGE_URL || 'https://mlf.qbtech.dev'
+    }
+  },
 
   image: {
     dir: 'app/assets/images',
     quality: 100,
     format: ["webp", "avif", "png"],
+    domains: [],
+    alias: {
+      qb: 'https://mlf.qbtech.dev'
+    }
   }
 })

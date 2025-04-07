@@ -10,9 +10,9 @@
 
   const page = ref({
     hero: {
-      title: 'Inclusive care for children with special needs',
+      title: 'Empowering African Expats. Enriching Communities in Italy',
       description:
-        '‍Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.',
+        'We are a united community of African expatriates in Italy, working together to support each other and make a positive impact through service, outreach, education, and cultural programs.',
       orientation: 'vertical',
       links: [
         {
@@ -35,11 +35,12 @@
       headline: 'About Us',
       title: 'A big family across many nations',
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.',
+        'Martin Luther Foundation is a non-profit association created by Africans living in Italy. Our aim is simple: to uplift each other and our communities through collaboration, empowerment, and cultural pride. We believe in the power of unity and service, and we are committed to building bridges between cultures, supporting fellow expats, and making a lasting difference in the places we live.',
       orientation: 'horizontal',
       links: [
         {
           label: 'Learn More',
+          to: '/about-us',
         },
       ],
       // features: [
@@ -82,10 +83,8 @@
     services: {
       orientation: 'horizontal',
       reverse: true,
-      title: 'Some services we provide',
-      headline: 'What We Do',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.',
+      title: 'Making a better world',
+      headline: 'Our pride',
       features: [
         {
           title: 'Health benefits',
@@ -112,24 +111,30 @@
           icon: 'i-lucide:file-text',
         },
       ],
+      links: [
+        {
+          label: 'Learn More',
+          to: '/what-we-do',
+        },
+      ],
     } as PageSectionProps,
     projects: {
       orientation: 'vertical',
       reverse: false,
-      title: 'We are creating a place where everyone can thrive',
+      title: 'Our Impact in Action',
       headline: 'Projects',
     } as PageSectionProps,
     cta: {
-      title: 'You can contribute to making society better for all of us',
-      variant: 'naked',
+      title: 'Ready to Make a Difference?',
+      variant: 'subtle',
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.',
+        "Join a growing network of African expats working to support each other and contribute to a better community. Whether you want to volunteer, participate in events, or simply connect — there's a place for you.",
       links: [
         {
           label: 'Join us today',
           color: 'primary',
           variant: 'solid',
-          to: '#',
+          to: '/join-us',
           size: 'lg',
         },
         {
@@ -145,22 +150,25 @@
 
   const projects = ref([
     {
-      title: 'Mission smile 1k: Outdoor charity',
+      title: 'Neighborhood Clean-up Days',
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.',
+        'Regular volunteer-led clean-ups in collaboration with local authorities',
       link: '#',
+      image: getStorageUrl('10-min.jpeg'),
     },
     {
-      title: 'Excursions & Games',
+      title: 'Outdoor Activities & Games',
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.',
+        'Regular health-focused activities to promote togetherness and health awareness.',
       link: '#',
+      image: getStorageUrl('11-min.jpeg'),
     },
     {
-      title: 'Monthly public awareness',
+      title: 'Language & Job Readiness Workshops',
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.',
+        'Helping members improve Italian proficiency and job-seeking skills.',
       link: '#',
+      image: getStorageUrl('5-min.jpeg'),
     },
   ]);
 </script>
@@ -169,7 +177,12 @@
   <div>
     <UContainer>
       <PageHero v-bind="page.hero">
-        <BaseImagePlaceholder class="w-full" />
+        <!-- <BaseImagePlaceholder class="w-full" /> -->
+        <VideoPlayer
+          src="https://mlf.qbtech.dev/final.mp4"
+          :controls="true"
+          :autoplay="true"
+        />
       </PageHero>
     </UContainer>
 
@@ -178,23 +191,21 @@
     </PageSection>
 
     <PageSection v-bind="page.about_us">
-      <img
-        src="https://picsum.photos/704/912"
+      <NuxtImg
+        :src="getStorageUrl('big-family-nations.jpg')"
         width="450"
         height="550"
-        alt="Illustration"
-        class="w-full rounded-[calc(var(--ui-radius)*2)]"
+        alt="Gathering of people"
+        class="w-full rounded-[calc(var(--ui-radius)*2)] object-cover"
       />
     </PageSection>
 
     <div class="bg-(--ui-bg-elevated)/75">
       <PageSection v-bind="page.services">
-        <img
-          src="https://picsum.photos/704/1294"
-          width="352"
-          height="647"
-          alt="Illustration"
-          class="w-full rounded-[calc(var(--ui-radius)*2)]"
+        <NuxtImg
+          :src="getStorageUrl('better_world.jpeg')"
+          alt="working in the community"
+          class="w-full rounded-[calc(var(--ui-radius)*2)] h-full object-cover"
         />
       </PageSection>
     </div>
@@ -210,10 +221,10 @@
           variant="subtle"
           reverse
         >
-          <img
-            src="https://picsum.photos/500/500"
+          <NuxtImg
+            :src="proj.image"
             :alt="proj.title"
-            class="w-full rounded-[calc(var(--ui-radius)*2)] relative after:absolute after:inset-0 after:bg-black/50"
+            class="w-full rounded-[calc(var(--ui-radius)*2)] aspect-image object-cover"
           />
         </PageCard>
       </PageGrid>
