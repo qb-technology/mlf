@@ -47,7 +47,7 @@
     slots: {
       root: 'relative isolate',
       container:
-        'flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16',
+        'flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16 container',
       wrapper: '',
       headline: 'mb-3',
       leading: 'flex items-center mb-6',
@@ -136,7 +136,7 @@
 
 <template>
   <div :class="[_ui.root({ class: [props.class, ui.root] })]">
-    <UContainer :class="[_ui.container({ class: [ui.container] })]">
+    <div :class="[_ui.container({ class: [ui.container] })]">
       <div :class="[_ui.wrapper({ class: [ui.wrapper] })]">
         <div
           v-if="$slots.leading || icon"
@@ -195,6 +195,6 @@
       </div>
 
       <slot />
-    </UContainer>
+    </div>
   </div>
 </template>

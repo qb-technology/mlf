@@ -4,6 +4,7 @@
   import type { PageHeroProps } from '~/components/Page/Hero.vue';
   import type { PageLogosProp } from '~/components/Page/Logos.vue';
   import type { PageSectionProps } from '~/components/Page/Section.vue';
+  import type { SocialLinks } from '~/utils/type';
 
   useHead({
     title: 'About Us',
@@ -12,7 +13,7 @@
   type TeamMember = {
     name?: string;
     position?: string;
-    social?: { facebook: string; x: string; linkedin: string };
+    social?: SocialLinks;
   };
 
   const page = ref({

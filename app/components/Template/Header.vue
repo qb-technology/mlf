@@ -15,7 +15,7 @@
     },
     {
       label: 'Contact',
-      to: '#',
+      to: '/contact-us',
     },
   ]);
 </script>

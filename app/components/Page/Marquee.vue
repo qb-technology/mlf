@@ -1,11 +1,12 @@
 <script lang="ts" setup>
   import { tv_base_ui as tv } from '#imports';
+  import { Primitive, type PrimitiveProps } from 'reka-ui';
 
   interface UI {
     root?: string;
     content?: string;
   }
-  export interface PageMarqueeProps {
+  export interface PageMarqueeProps extends PrimitiveProps {
     as?: string;
     pauseOnHover?: boolean;
     reverse?: boolean;
@@ -100,8 +101,9 @@
 </script>
 
 <template>
-  <component
-    :is="as"
+  <Primitive
+    :as="as"
+    :as-child="asChild"
     role="div"
     :class="_ui.root({ class: [props.class, ui.root] })"
   >
@@ -112,7 +114,7 @@
     >
       <slot />
     </div>
-  </component>
+  </Primitive>
 </template>
 
 <style scoped></style>

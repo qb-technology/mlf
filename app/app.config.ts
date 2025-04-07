@@ -7,8 +7,19 @@ export default defineAppConfig({
     },
     button: {
       defaultVariants: {
+        color: 'neutral'
         // Set default button color to neutral
         // color: 'neutral'
+      }
+    },
+    textarea: {
+      slots: {
+        root: 'w-full'
+      }
+    },
+    input: {
+      slots: {
+        root: 'w-full'
       }
     }
   }
