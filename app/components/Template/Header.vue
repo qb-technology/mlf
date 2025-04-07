@@ -25,10 +25,7 @@
   <PageHeader :ui="{ title: 'max-w-[200px] text-base' }">
     <template #title>
       <!-- <NuxtImg src="logo.png" class="w-36 aspect-auto" /> -->
-      <div class="flex items-start gap-2">
-        <UIcon name="i-lucide:earth" class="size-7" />
-        <span class="wrap-normal">Martin Luther Foundation</span>
-      </div>
+      <Logo :ui="{ label: 'hidden xs:inline-block ' }" />
     </template>
     <UNavigationMenu :items="items" />
     <template #right>

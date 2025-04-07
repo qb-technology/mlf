@@ -4,6 +4,7 @@
 @theme static {
   --font-sans: 'Noto Sans', sans-serif;
   --aspect-image: 4/3;
+  --breakpoint-xs: 320px;
 
   --animate-marquee: marquee 20s linear infinite;
   --animate-marque-vertical: marquee-vertical 20s linear infinite;

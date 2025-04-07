@@ -1,47 +1,36 @@
 <script setup lang="ts">
   const columns = [
     {
-      label: 'Community',
+      label: 'Pages',
       children: [
         {
-          label: 'Nuxters',
-          to: 'https://nuxters.nuxt.com',
-          target: '_blank',
+          label: 'Our Story',
+          to: '/about-us',
         },
         {
-          label: 'Video Courses',
-          to: 'https://masteringnuxt.com/nuxt3?ref=nuxt',
-          target: '_blank',
+          label: 'Projects',
+          to: '/what-we-do',
         },
         {
-          label: 'Nuxt on GitHub',
-          to: 'https://github.com/nuxt',
-          target: '_blank',
+          label: 'Partner with us',
+          to: '#',
         },
       ],
     },
     {
-      label: 'Solutions',
+      label: 'Others',
       children: [
         {
-          label: 'Nuxt Content',
-          to: 'https://content.nuxt.com/',
-          target: '_blank',
+          label: 'Blogs',
+          to: '#',
         },
         {
-          label: 'Nuxt DevTools',
-          to: 'https://devtools.nuxt.com/',
-          target: '_blank',
+          label: 'Volunteer',
+          to: '/join-us',
         },
         {
-          label: 'Nuxt Image',
-          to: 'https://image.nuxt.com/',
-          target: '_blank',
-        },
-        {
-          label: 'Nuxt UI',
-          to: 'https://ui.nuxt.com/',
-          target: '_blank',
+          label: 'Career',
+          to: '#',
         },
       ],
     },
@@ -52,7 +41,18 @@
   <PageFooter>
     <template #top>
       <UContainer>
-        <FooterColumns :columns="columns">
+        <FooterColumns
+          :columns="columns"
+          :ui="{
+            root: 'grid gap-8 grid-cols-2 lg:grid-cols-4 xl:grid-cols-5',
+            wrapper: 'flex flex-col items-center lg:block',
+            item: 'text-center lg:text-start',
+            center:
+              'grid justify-center order-first lg:order-none col-span-full lg:col-span-2 xl:col-span-3',
+            left: 'order-last sm:order-none col-span-full sm:col-span-1 mt-10 mb-0',
+            right: 'col-span-full sm:col-span-1',
+          }"
+        >
           <template #right>
             <UFormField
               name="email"
@@ -70,6 +70,9 @@
                 </template>
               </UInput>
             </UFormField>
+          </template>
+          <template #left>
+            <Logo />
           </template>
         </FooterColumns>
       </UContainer>

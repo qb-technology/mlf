@@ -13,6 +13,7 @@
     left?: string;
     center?: string;
     right?: string;
+    wrapper?: string;
     label?: string;
     list?: string;
     item?: string;
@@ -42,6 +43,7 @@
       center:
         'flex flex-col lg:grid grid-flow-col auto-cols-fr gap-8 xl:col-span-2',
       right: 'mt-10 xl:mt-0',
+      wrapper: '',
       label: 'text-sm font-semibold',
       list: 'mt-6 space-y-4',
       item: 'relative',
@@ -81,7 +83,11 @@
 
     <div :class="_ui.center({ class: [ui.center] })">
       <slot name="default">
-        <div v-for="(col, ind) in columns" :key="ind">
+        <div
+          v-for="(col, ind) in columns"
+          :key="ind"
+          :class="_ui.wrapper({ class: ui.wrapper })"
+        >
           <h3 :class="_ui.label({ class: [ui.label] })">{{ col.label }}</h3>
           <ul :class="_ui.list({ class: [ui.list] })">
             <li
