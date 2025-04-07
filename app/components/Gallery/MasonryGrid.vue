@@ -41,6 +41,12 @@
     else return 1;
   });
 
+  // const genCols = () => {
+  //     return Array.from(Array(num_cols.value).keys()).map((col_) => {
+  //       return props.images.filter((_, ind) => ind % num_cols.value === col_);
+  //     });
+  //   }
+
   const columns = computed(() => {
     return Array.from(Array(num_cols.value).keys()).map((col_) => {
       return props.images.filter((_, ind) => ind % num_cols.value === col_);

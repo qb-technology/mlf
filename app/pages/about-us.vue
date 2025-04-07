@@ -209,6 +209,9 @@
             :description="card.description"
             :icon="card.icon"
             variant="ghost"
+            :ui="{
+              leadingIcon: 'size-10',
+            }"
           />
         </PageGrid>
 

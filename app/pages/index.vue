@@ -17,14 +17,14 @@
       links: [
         {
           label: 'Join Us',
-          to: '#',
+          to: '/join-us',
           variant: 'solid',
           color: 'neutral',
           icon: 'i-lucide:heart-handshake',
         },
         {
           label: 'What we do',
-          to: '#',
+          to: '/what-we-do',
           variant: 'ghost',
           color: 'neutral',
           icon: 'i-lucide-hand-helping',

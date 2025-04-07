@@ -4,7 +4,9 @@
   <div>
     <TemplateHeader />
 
-    <slot />
+    <PageMain>
+      <slot />
+    </PageMain>
 
     <USeparator type="dashed" class="h-px" />
     <TemplateFooter />

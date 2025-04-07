@@ -43,6 +43,7 @@
         color="neutral"
         icon="i-lucide:heart-handshake"
         label="Join Us"
+        to="/join-us"
       />
     </template>
   </PageHeader>
