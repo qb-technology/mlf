@@ -115,5 +115,8 @@ export default defineNuxtConfig({
       enabled: true,
       type: "module"
     }
+  },
+  hub: {
+    cache: true
   }
 })
