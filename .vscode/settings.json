@@ -33,8 +33,12 @@
         "lucide",
         "maxrows",
         "Noto",
+        "nuxthub",
+        "persistedstate",
         "qbtech",
         "reka",
-        "Slideover"
+        "Slideover",
+        "unhead",
+        "vueuse"
     ]
 }
