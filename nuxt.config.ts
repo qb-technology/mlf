@@ -7,10 +7,10 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@nuxt/image',
     '@nuxt/scripts',
-
     '@vueuse/nuxt',
     '@pinia/nuxt',
     'pinia-plugin-persistedstate/nuxt',
+    '@vite-pwa/nuxt'
   ],
 
   css: ['~/assets/css/main.css'],
