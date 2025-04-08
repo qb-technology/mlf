@@ -6,7 +6,7 @@
   const logo = tv({
     slots: {
       root: 'flex items-start gap-2 w-fit',
-      leadingIcon: 'size-7',
+      leadingIcon: 'size-7 text-(--ui-primary)',
       label: 'wrap-normal max-w-(160px) text-base sm:text-lg leading-tight',
     },
   });

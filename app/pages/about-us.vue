@@ -131,8 +131,7 @@
       orientation: 'vertical',
       reverse: false,
       title: 'Meet our team',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.',
+      description: 'A passionate, dedicated team leading the mission',
       headline: 'Good people',
       team: [
         {

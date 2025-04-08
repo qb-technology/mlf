@@ -50,7 +50,7 @@
     _controls.value = false;
   });
   watch(isVisible, () => {
-    console.log(isVisible.value);
+    // console.log(isVisible.value);
     if (!isVisible.value && playing.value) {
       playing.value = !playing.value;
     }

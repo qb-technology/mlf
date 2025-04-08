@@ -43,6 +43,10 @@
         to="/join-us"
       />
     </template>
+
+    <template #body>
+      <UNavigationMenu :items="items" orientation="vertical" />
+    </template>
   </PageHeader>
   <!-- </UContainer> -->
 </template>

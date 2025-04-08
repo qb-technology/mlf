@@ -1,4 +1,5 @@
 <script setup lang="ts">
+  import { USlideover } from '#components';
   import { tv_base_ui as tv } from '#imports';
   import type { ButtonProps } from '@nuxt/ui';
   import { Primitive, type PrimitiveProps } from 'reka-ui';
@@ -76,6 +77,16 @@
     if (!props.toggle) return;
     _open.value = !_open.value;
   }
+
+  function close() {
+    if (_open.value) {
+      _open.value = false;
+    }
+    return;
+  }
+
+  // const leftSlot = templateRef('left');
+  // const rightSlot = templateRef('right');
 </script>
 
 <template>
@@ -85,7 +96,8 @@
     :class="_ui.root({ class: [props.class, ui.root] })"
   >
     <UContainer :class="_ui.container({ class: [ui.container] })">
-      <div :class="_ui.left({ class: [ui.left] })">
+      <!-- <Teleport to="#left">kk</Teleport> -->
+      <div ref="left" :class="_ui.left({ class: [ui.left] })">
         <slot name="left">
           <ULink :to="to" :class="_ui.title({ class: [ui.title] })">
             <slot name="title">{{ title }}</slot>
@@ -95,7 +107,7 @@
       <div :class="_ui.center({ class: [ui.center] })">
         <slot />
       </div>
-      <div :class="_ui.right({ class: [ui.right] })">
+      <div ref="right" :class="_ui.right({ class: [ui.right] })">
         <slot name="right" />
         <slot name="toggle">
           <UButton
@@ -107,17 +119,25 @@
       </div>
     </UContainer>
     <USlideover
+      v-if="mode === 'slideover'"
       v-model:open="_open"
       :side="toggleSide"
-      title="ha"
+      title="Menu"
       :ui="{
         header: _ui.header({ class: [ui.header] }),
         body: _ui.body({ class: ui.body }),
         content: _ui.content({ class: ui.content }),
       }"
     >
-      <template #header>header</template>
-      <template #content>good</template>
+      <template #header>
+        <div id="left"></div>
+        <div class="flex items-center justify-end w-full">
+          <UButton variant="ghost" icon="i-lucide-x" @click="close" />
+        </div>
+      </template>
+      <template #body>
+        <slot name="body" @click="close" />
+      </template>
     </USlideover>
   </Primitive>
 </template>

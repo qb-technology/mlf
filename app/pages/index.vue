@@ -181,13 +181,17 @@
         <VideoPlayer
           src="https://mlf.qbtech.dev/final.mp4"
           :controls="true"
-          :autoplay="true"
+          :autoplay="false"
         />
       </PageHero>
     </UContainer>
 
     <PageSection :ui="{ container: 'py-8 sm:py-12 lg:py-16' }">
-      <PageLogos v-bind="page.logos" />
+      <PageLogos
+        v-bind="page.logos"
+        marquee
+        :ui="{ logo: 'size-8 md:size-10' }"
+      />
     </PageSection>
 
     <PageSection v-bind="page.about_us">

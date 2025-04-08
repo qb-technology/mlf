@@ -2,6 +2,7 @@
   import { tv_base_ui as tv } from '#imports';
   import uiImageComponent from '#build/ui-image-component';
   import { Primitive, type PrimitiveProps } from 'reka-ui';
+  import type { PageMarqueeProps } from './Marquee.vue';
 
   export interface pageLogosItem {
     src?: string;
@@ -18,7 +19,7 @@
     class?: string;
     title?: string;
     items?: Array<pageLogosItem | string>;
-    marquee?: boolean;
+    marquee?: boolean | PageMarqueeProps;
     ui?: UI;
   }
 
@@ -50,9 +51,13 @@
 
   const _ui = computed(() =>
     pageLogos({
-      marquee: props.marquee,
+      marquee: Boolean(props.marquee),
     }),
   );
+  const _marquee = computed(() => {
+    if (typeof props.marquee === 'boolean') return {} as PageMarqueeProps;
+    return props.marquee;
+  });
 </script>
 
 <template>
@@ -63,27 +68,53 @@
   >
     <h2 :class="_ui.title({ class: [ui.title] })">{{ title }}</h2>
     <div :class="_ui.logos({ class: [ui.logos] })">
-      <slot>
-        <template v-if="items.every((item) => typeof item === 'string')">
-          <UIcon
-            v-for="(item, index) in items"
-            :key="index"
-            :name="item"
-            :class="_ui.logo({ class: [ui.logo] })"
-          />
-        </template>
-        <template v-else>
-          <template v-for="(item, ind) in items" :key="ind">
-            <component
-              :is="uiImageComponent"
-              v-if="typeof item !== 'string'"
-              role="img"
-              :src="item.src"
+      <template v-if="!Boolean(marquee)">
+        <slot>
+          <template v-if="items.every((item) => typeof item === 'string')">
+            <UIcon
+              v-for="(item, index) in items"
+              :key="index"
+              :name="item"
               :class="_ui.logo({ class: [ui.logo] })"
             />
           </template>
-        </template>
-      </slot>
+          <template v-else>
+            <template v-for="(item, ind) in items" :key="ind">
+              <component
+                :is="uiImageComponent"
+                v-if="typeof item !== 'string'"
+                role="img"
+                :src="item.src"
+                :class="_ui.logo({ class: [ui.logo] })"
+              />
+            </template>
+          </template>
+        </slot>
+      </template>
+
+      <PageMarquee v-else v-bind="_marquee">
+        <slot>
+          <template v-if="items.every((item) => typeof item === 'string')">
+            <UIcon
+              v-for="(item, index) in items"
+              :key="index"
+              :name="item"
+              :class="_ui.logo({ class: [ui.logo] })"
+            />
+          </template>
+          <template v-else>
+            <template v-for="(item, ind) in items" :key="ind">
+              <component
+                :is="uiImageComponent"
+                v-if="typeof item !== 'string'"
+                role="img"
+                :src="item.src"
+                :class="_ui.logo({ class: [ui.logo] })"
+              />
+            </template>
+          </template>
+        </slot>
+      </PageMarquee>
     </div>
   </Primitive>
 </template>
