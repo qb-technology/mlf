@@ -96,13 +96,13 @@ export default defineNuxtConfig({
           src: "screenshot_narrow.png",
           sizes: "320x320",
           type: "image/png",
-          form_factor: "wide"
+          form_factor: "narrow"
         },
         {
           src: "screenshot_wide.png",
           sizes: "640x320",
           type: "image/png",
-          form_factor: "narrow"
+          form_factor: "wide"
         },
       ]
 
