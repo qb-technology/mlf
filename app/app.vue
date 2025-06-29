@@ -1,7 +1,8 @@
 <template>
   <UApp>
-    <NuxtPwaAssets />
     <NuxtLayout>
+      <NuxtPwaAssets />
+      <NuxtLoadingIndicator />
       <NuxtRouteAnnouncer />
       <NuxtPage />
     </NuxtLayout>

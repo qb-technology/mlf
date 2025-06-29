@@ -2,6 +2,7 @@
 import withNuxt from './.nuxt/eslint.config.mjs';
 
 export default withNuxt().overrideRules({
-// Your custom configs here
+  // Your custom configs here
   'vue/html-self-closing': 'off',
+  '@typescript-eslint/no-unused-vars': 'off',
 });
