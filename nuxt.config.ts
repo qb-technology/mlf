@@ -1,4 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import devtoolJson from 'vite-plugin-devtools-json';
 export default defineNuxtConfig({
   devtools: { enabled: true },
 
@@ -18,6 +19,9 @@ export default defineNuxtConfig({
 
   future: {
     compatibilityVersion: 4
+  },
+  vite: {
+    plugins: [devtoolJson()],
   },
 
   // devServer: {
